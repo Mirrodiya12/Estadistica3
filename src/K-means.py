@@ -1,13 +1,13 @@
 import numpy as np
 
 def inicializar_centroides(datos, k):
-    """Inicializa los centroides seleccionando aleatoriamente k puntos de los datos."""
+   #Inicializa los centroides seleccionando aleatoriamente k puntos de los datos.
     np.random.seed(0)  # Para reproducibilidad
     indices = np.random.choice(len(datos), k, replace=False)
     return datos[indices]
 
 def actualizar_centroides(datos, etiquetas, k):
-    """Actualiza los centroides calculando la media de los puntos asignados a cada cluster."""
+    #Actualiza los centroides calculando la media de los puntos asignados a cada cluster.
     centroides = np.zeros((k, datos.shape[1]))
     for i in range(k):
         puntos_cluster = datos[etiquetas == i]
@@ -16,7 +16,7 @@ def actualizar_centroides(datos, etiquetas, k):
     return centroides
 
 def k_means(datos, k, max_iter=100):
-    """Algoritmo de K-means para clustering."""
+    #Algoritmo de K-means para clustering.
     centroides = inicializar_centroides(datos, k)
     for _ in range(max_iter):
         distancias = np.linalg.norm(datos[:, np.newaxis] - centroides, axis=2)
@@ -28,13 +28,13 @@ def k_means(datos, k, max_iter=100):
     return etiquetas, centroides
 
 def clasificar_test(datos_test, centroides):
-    """Clasifica los puntos de test basándose en la distancia a los centroides."""
+    #Clasifica los puntos de test basándose en la distancia a los centroides.
     distancias = np.linalg.norm(datos_test[:, np.newaxis] - centroides, axis=2)
     etiquetas = np.argmin(distancias, axis=1)
     return etiquetas
 
 def encontrar_ciudad_mas_cercana(punto, datos_entrenamiento, ciudades):
-    """Encuentra la ciudad más cercana en el conjunto de entrenamiento."""
+   #Encuentra la ciudad más cercana en el conjunto de entrenamiento.
     distancias = np.linalg.norm(datos_entrenamiento - punto, axis=1)
     indice_mas_cercano = np.argmin(distancias)
     ciudad_mas_cercana = ciudades[indice_mas_cercano]

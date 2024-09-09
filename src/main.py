@@ -87,15 +87,15 @@ for nombre, datos in conjuntos_datos.items():
         "Moda": moda(datos)
     }
 
-# Mostrar resultados
-for nombre, estadisticas in resultados.items():
-    print(f"{nombre}:")
-    print(f"  Media: {estadisticas['Media']:.2f}")
-    print(f"  Mediana: {estadisticas['Mediana']:.2f}")
-    print(f"  Desviación Estándar: {estadisticas['Desviación Estándar']:.2f}")
-    moda_valores, moda_freq = estadisticas['Moda']
-    print(f"  Moda: {moda_valores} con {moda_freq} ocurrencias")
-    print()
+    # Mostrar resultados
+    for nombre, estadisticas in resultados.items():
+        print(f"{nombre}:")
+        print(f"  Media: {estadisticas['Media']:.2f}")
+        print(f"  Mediana: {estadisticas['Mediana']:.2f}")
+        print(f"  Desviación Estándar: {estadisticas['Desviación Estándar']:.2f}")
+        moda_valores, moda_freq = estadisticas['Moda']
+        print(f"  Moda: {moda_valores} con {moda_freq} ocurrencias")
+        print()
 
 # Crear el boxplot con plotly
 fig = go.Figure()
