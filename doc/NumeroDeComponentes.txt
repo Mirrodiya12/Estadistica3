@@ -1,0 +1,2 @@
+Número de componentes para 95% de varianza: 142
+Número de componentes para 99% de varianza: 404
